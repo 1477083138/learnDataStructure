@@ -80,6 +80,9 @@ public class BinaryTree {
      * 先序遍历打印二叉树
      */
     public void printTree(){
+        if(root == null){
+            System.out.println("该二叉树为空树!");
+        }
         printTree(root);
     }
 
@@ -93,7 +96,7 @@ public class BinaryTree {
      * @param bTree
      * @return
      */
-    public static TreeNode mergeTree(TreeNode aTree,TreeNode bTree){
+    private static TreeNode mergeTree(TreeNode aTree,TreeNode bTree){
         if(aTree != null && bTree !=null){
             Integer sum = aTree.data + bTree.data;
             aTree.data = sum;
@@ -119,24 +122,5 @@ public class BinaryTree {
      */
     private TreeNode getRoot(){
         return this.root;
-    }
-
-    public static void main(String args[]){
-        BinaryTree binaryTree = new BinaryTree();
-        Integer[] arrays1  = {1,2,3,4,5,6,7,9,10};
-        binaryTree.construct(arrays1);
-        binaryTree.printTree();
-
-        System.out.println();
-
-        BinaryTree binaryTree1 = new BinaryTree();
-        Integer[] array2 = {1,2,3,4};
-        binaryTree1.construct(array2);
-        binaryTree1.printTree();
-
-        System.out.println();
-
-        BinaryTree.mergeTree(binaryTree,binaryTree1).printTree();
-
     }
 }

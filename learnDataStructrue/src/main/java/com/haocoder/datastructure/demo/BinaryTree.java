@@ -97,13 +97,20 @@ public class BinaryTree {
      * @return
      */
     private static TreeNode mergeTree(TreeNode aTree,TreeNode bTree){
-        if(aTree != null && bTree !=null){
-            Integer sum = aTree.data + bTree.data;
-            aTree.data = sum;
-            mergeTree(aTree.leftNode,bTree.leftNode);
-            mergeTree(aTree.rightNode,bTree.rightNode);
+        if(aTree != null && bTree !=null && aTree.data!= null && bTree.data !=null){
+            aTree.data = aTree.data + bTree.data;
+            aTree.leftNode = mergeTree(aTree.leftNode,bTree.leftNode);
+            aTree.rightNode = mergeTree(aTree.rightNode,bTree.rightNode);
+            return aTree;
         }
-        return  aTree == null ? bTree : aTree;
+        //如果两个二叉树任一节点存在，则合并（这一层包含了bTree=null的情况，即条件3））是递归的结束条件
+       /* if(aTree == null || aTree.data == null){
+            return bTree;
+        }else{
+            return aTree;
+        }*/
+        //化简
+        return aTree == null || aTree.data == null ? bTree : aTree;
     }
 
     /**

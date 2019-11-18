@@ -10,14 +10,14 @@ public class testBinaryTree {
     public static void main(String args[]){
         BinaryTree binaryTree = new BinaryTree();
         binaryTree.printTree();
-        Integer[] arrays1  = {1,2,3,4,5,6,7,9,10};
+        Integer[] arrays1  = {1,3,2,5};
         binaryTree.construct(arrays1);
         binaryTree.printTree();
 
         System.out.println();
 
         BinaryTree binaryTree1 = new BinaryTree();
-        Integer[] array2 = {1,2,3,4};
+        Integer[] array2 = {2,1,3,null,4,null,7};
         binaryTree1.construct(array2);
         binaryTree1.printTree();
 
